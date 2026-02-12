@@ -1,34 +1,31 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>TV Show Project | Alicia Wynona Tjahjadi (aliciawt)</title>
-    <link href="style.css" rel="stylesheet" />
-    <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+    <title>TV Show Project | Level 300</title>
+    <link rel="stylesheet" href="style.css" />
   </head>
-
   <body>
-    <div id="card-container"></div>
-
-    <template id="template">
-      <div id="episode-card">
-        <h2 id="title-episode"></h2>
-        <img id="image"/>
-        <p id="summary"></p>
+    <header>
+      <div class="controls">
+        <select id="episode-select">
+          <option value="all">Show all episodes</option>
+        </select>
+        <input type="text" id="search-input" placeholder="Search episodes..." />
+        <div id="display-count"></div>
       </div>
-    </template>
-    
+    </header>
 
-    <!-- Loads a provided function called getAllEpisodes() which returns all episodes -->
-    <script src="episodes.js"></script>
+    <main id="root"></main>
 
-    <!-- Loads YOUR javascript code -->
+    <footer>
+      <p>
+        Data provided by
+        <a href="https://tvmaze.com/" target="_blank">TVMaze.com</a>
+      </p>
+    </footer>
+
     <script src="script.js"></script>
   </body>
-
-  <footer> Data originally from 
-    <a href="https://www.tvmaze.com/" target="_blank" rel="noopener">TVMaze.com</a>
-  </footer>
-
 </html>
