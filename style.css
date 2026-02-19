@@ -17,7 +17,7 @@ img {
   height: auto;
 }
 
-#live-search {
+aside {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -25,7 +25,7 @@ img {
   margin: 2rem 0;
 }
 
-#live-search form, #number-of-episodes {
+aside form, #number-of-episodes {
   margin: 0;
 }
 
@@ -53,7 +53,7 @@ img {
 
 .episode-code {
   display: block;
-  font-weight: normal;
+  font-weight: bold;
   font-size: 0.9rem;
 }
 

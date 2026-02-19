@@ -4,8 +4,11 @@ let filteredEpisodes;
 function setup() {
   allEpisodes = getAllEpisodes();
   makePageForEpisodes(allEpisodes);
+  populateDropdown();
+  setupDropdownListener();
 }
 
+// render episode cards & update counter
 function makePageForEpisodes(episodeList) {
   const template = document.getElementById("template");
   
@@ -19,10 +22,10 @@ function makePageForEpisodes(episodeList) {
     const image = clone.querySelector(".image");
     const summary = clone.querySelector(".summary");
 
-    title.innerHTML = `<a href="${episode.url}" target="_blank">${episode.name}</a>`;
-
     code.textContent =
       `S${String(episode.season).padStart(2,"0")}E${String(episode.number).padStart(2,"0")}`;
+
+    title.innerHTML = `<a href="${episode.url}" target="_blank">${episode.name}</a>`;
 
     image.src = episode.image.medium;
     image.alt = episode.name;
@@ -32,6 +35,7 @@ function makePageForEpisodes(episodeList) {
   });
 
   const container = document.getElementById("card-container");
+  container.innerHTML = "";
   container.append(...cards);
 
   filteredEpisodes = cards.length.toString();
@@ -40,6 +44,7 @@ function makePageForEpisodes(episodeList) {
   numberOfEpisodes.textContent = `Displaying ${filteredEpisodes} out of ${totalEpisodes} episodes`
 }
 
+// live search function
 const searchBox = document.getElementById("search-box");
 
 searchBox.addEventListener("keyup", userSearch);
@@ -57,6 +62,35 @@ function userSearch() {
   const container = document.getElementById("card-container");
   container.innerHTML = "";
   makePageForEpisodes(filteredEpisodes);
+}
+
+// populate dropdown
+function populateDropdown() {
+  const episodeDropdown = document.getElementById("episode-dropdown");
+
+  allEpisodes.forEach(episode => {
+    const option = document.createElement("option");
+    option.value = episode.id;
+    option.textContent = `S${String(episode.season).padStart(2,"0")}E${String(episode.number).padStart(2,"0")} ${episode.name}`;
+    episodeDropdown.appendChild(option);
+  });
+}
+
+function setupDropdownListener () {
+  const episodeDropdown = document.getElementById("episode-dropdown");
+
+  episodeDropdown.addEventListener("change", (e) => {
+    const selectedValue = e.target.value;
+
+    if (selectedValue === "all") {
+      makePageForEpisodes(allEpisodes);
+      return;
+    }
+    
+    const selectedId = parseInt(e.target.value);
+    const selectedEpisode = allEpisodes.filter(ep => ep.id === selectedId);
+    makePageForEpisodes(selectedEpisode);
+  });
 }
 
 window.onload = setup;

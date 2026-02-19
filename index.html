@@ -9,22 +9,25 @@
   </head>
 
   <body>
-    <aside id="live-search">
+    <aside>
       <form>
         <input id="search-box" type="text" placeholder="Start typing to search..."/>
       </form>
       <p id="number-of-episodes"></p>
+      <select id="episode-dropdown">
+        <option value="all" selected>Select episode...</option>
+      </select>
     </aside>
 
     <div id="card-container"></div>
 
     <template id="template">
       <div id="episode-card">
-      <h2 class="title"></h2>
-      <div class="episode-code"></div>
-      <img class="image" />
-      <p class="summary"></p>
-    </div>
+        <div class="episode-code"></div>
+        <h2 class="title"></h2>
+        <img class="image" />
+        <p class="summary"></p>
+      </div>
     </template>
     
     <script src="episodes.js"></script>
