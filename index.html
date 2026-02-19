@@ -9,21 +9,26 @@
   </head>
 
   <body>
+    <aside id="live-search">
+      <form>
+        <input id="search-box" type="text" placeholder="Start typing to search..."/>
+      </form>
+      <p id="number-of-episodes"></p>
+    </aside>
+
     <div id="card-container"></div>
 
     <template id="template">
       <div id="episode-card">
-        <h2 id="title-episode"></h2>
-        <img id="image"/>
-        <p id="summary"></p>
-      </div>
+      <h2 class="title"></h2>
+      <div class="episode-code"></div>
+      <img class="image" />
+      <p class="summary"></p>
+    </div>
     </template>
     
-
-    <!-- Loads a provided function called getAllEpisodes() which returns all episodes -->
     <script src="episodes.js"></script>
 
-    <!-- Loads YOUR javascript code -->
     <script src="script.js"></script>
   </body>
 
