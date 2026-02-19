@@ -1,11 +1,31 @@
 let allEpisodes = [];
 let filteredEpisodes;
 
-function setup() {
-  allEpisodes = getAllEpisodes();
-  makePageForEpisodes(allEpisodes);
-  populateDropdown();
-  setupDropdownListener();
+const searchBox = document.getElementById("search-box");
+const episodeDropdown = document.getElementById("episode-dropdown");
+const container = document.getElementById("card-container");
+const numberOfEpisodes = document.getElementById("number-of-episodes");
+
+// main setup
+async function setup() {
+  // show loading message
+  container.innerHTML = `<p>Loading episodes, please wait...</p>`;
+
+  try {
+    const response = await fetch("https://api.tvmaze.com/shows/82/episodes");
+    
+    if (!response.ok) throw new Error("Network response was not ok");
+
+    allEpisodes = await response.json();
+
+    // render all episodes
+    makePageForEpisodes(allEpisodes);
+    populateDropdown();
+    setupDropdownListener();
+
+  } catch (error) {
+    container.innerHTML = `<p style="color:red;">Failed to load episodes. Please try again later.</p>`;
+  }
 }
 
 // render episode cards & update counter
@@ -34,19 +54,15 @@ function makePageForEpisodes(episodeList) {
     return clone;
   });
 
-  const container = document.getElementById("card-container");
   container.innerHTML = "";
   container.append(...cards);
 
   filteredEpisodes = cards.length.toString();
 
-  const numberOfEpisodes = document.getElementById("number-of-episodes");
   numberOfEpisodes.textContent = `Displaying ${filteredEpisodes} out of ${totalEpisodes} episodes`
 }
 
 // live search function
-const searchBox = document.getElementById("search-box");
-
 searchBox.addEventListener("keyup", userSearch);
 
 function userSearch() {
@@ -66,8 +82,6 @@ function userSearch() {
 
 // populate dropdown
 function populateDropdown() {
-  const episodeDropdown = document.getElementById("episode-dropdown");
-
   allEpisodes.forEach(episode => {
     const option = document.createElement("option");
     option.value = episode.id;
@@ -77,8 +91,6 @@ function populateDropdown() {
 }
 
 function setupDropdownListener () {
-  const episodeDropdown = document.getElementById("episode-dropdown");
-
   episodeDropdown.addEventListener("change", (e) => {
     const selectedValue = e.target.value;
 
