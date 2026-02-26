@@ -37,7 +37,16 @@ async function setup() {
   // When a show is selected
   showDropdown.addEventListener("change", async (e) => {
     const showId = e.target.value;
-    if (!showId) return;
+    if (!showId) {
+      if (!showId) {
+      container.innerHTML = `<p>Select a show above to see episodes...</p>`;
+      episodeDropdown.innerHTML = '<option value="">All episodes</option>';
+      searchBox.value = '';
+      currentEpisodes = [];
+      numberOfEpisodes.textContent = '';
+      return;
+      }
+    }
 
     container.innerHTML = `<p>Loading episodes...</p>`;
 
@@ -80,7 +89,7 @@ function renderEpisodes(episodes) {
 
     code.textContent = `S${String(ep.season).padStart(2, "0")}E${String(ep.number).padStart(2, "0")}`;
     title.innerHTML = `<a href="${ep.url}" target="_blank">${ep.name}</a>`;
-    image.src = ep.image ? ep.image.medium : "placeholder.jpg";
+    image.src = ep.image.medium;
     image.alt = ep.name;
     summary.innerHTML = ep.summary || "No summary available";
 
