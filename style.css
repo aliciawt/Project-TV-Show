@@ -5,31 +5,22 @@
 }
 
 html, body {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Segoe UI', Arial, sans-serif;
   line-height: 1.5;
   background-color: #f8f8f8;
   color: #111;
 }
 
-img {
-  display: block;
-  max-width: 100%;
-  height: auto;
-}
-
-aside {
+header {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 1.5rem;
+  gap: 1rem;
   margin: 2rem 0;
+  flex-wrap: wrap;
 }
 
-aside form, #number-of-episodes {
-  margin: 0;
-}
-
-#search-box {
+#search-box, select {
   height: 2rem;
   font-size: 1rem;
   padding: 0 0.5rem;
@@ -40,8 +31,8 @@ aside form, #number-of-episodes {
 #number-of-episodes {
   font-style: italic;
   font-size: 0.9rem;
+  margin-left: 1rem;
 }
-
 
 #card-container {
   display: grid;
@@ -51,13 +42,7 @@ aside form, #number-of-episodes {
   padding: 1rem;
 }
 
-.episode-code {
-  display: block;
-  font-weight: bold;
-  font-size: 0.9rem;
-}
-
-#episode-card {
+.episode-card {
   display: flex;
   flex-direction: column;
   width: 250px;
@@ -66,39 +51,50 @@ aside form, #number-of-episodes {
   padding: 1rem;
   border-radius: 8px;
   box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.episode-code {
+  display: block;
+  font-weight: bold;
+  font-size: 0.9rem;
   text-align: center;
+  flex-shrink: 0;
+  margin-bottom: 0.3rem;
 }
 
-#episode-card h2 {
+.title {
   font-size: 1.1rem;
+  line-height: 1.2em;
   margin-bottom: 0.5rem;
-  height: 3.2em;
   overflow: hidden;
+  text-align: center;
+  flex-shrink: 0;
+  background: none;
 }
 
-#episode-card img {
+.image {
   width: 100%;
   height: 150px;
   object-fit: cover;
   border-radius: 4px;
   margin-bottom: 0.5rem;
+  flex-shrink: 0;
 }
 
-#episode-card p {
+.summary {
   font-size: 0.9rem;
-  overflow: auto;
-  flex: 1;
-}
-
-
-#episode-card p {
-  font-size: 0.9rem;
-  overflow: auto;
+  text-align: left;
+  flex-grow: 1;
+  overflow-y: auto;
 }
 
 footer {
-  text-align:center;
-  margin-top:2rem;
-  font-size:0.9rem;
-  color:#555;
+  text-align: center;
+  margin-top: 2rem;
+  font-size: 0.9rem;
+  color: #555;
+}
+
+footer a {
+  color: #3498db;
 }

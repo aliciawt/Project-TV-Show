@@ -1,42 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>TV Show Project | Alicia Wynona Tjahjadi (aliciawt)</title>
-    <link href="style.css" rel="stylesheet" />
-    <link rel="icon" href="/favicon.ico" type="image/x-icon" />
-  </head>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TV Show Project | Alicia Wynona Tjahjadi</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <select id="show-dropdown">
+      <option value="">Select a show...</option>
+    </select>
 
-  <body>
-    <aside>
-      <form>
-        <input id="search-box" type="text" placeholder="Start typing to search..."/>
-      </form>
-      <p id="number-of-episodes"></p>
-      <select id="episode-dropdown">
-        <option value="all" selected>Select episode...</option>
-      </select>
-    </aside>
+    <select id="episode-dropdown">
+      <option value="">All episodes</option>
+    </select>
 
-    <div id="card-container"></div>
+    <input type="text" id="search-box" placeholder="Search episodes...">
+    <span id="number-of-episodes"></span>
+  </header>
 
-    <template id="template">
-      <div id="episode-card">
-        <div class="episode-code"></div>
-        <h2 class="title"></h2>
-        <img class="image" />
-        <p class="summary"></p>
-      </div>
-    </template>
-    
-    <script src="episodes.js"></script>
+  <div id="card-container"></div>
 
-    <script src="script.js"></script>
-  </body>
+  <!-- Template for episode card -->
+  <template id="template">
+    <div class="episode-card">
+      <div class="episode-code"></div>
+      <h2 class="title"></h2>
+      <img class="image" />
+      <div class="summary"></div>
+    </div>
+  </template>
 
-  <footer> Data originally from 
-    <a href="https://www.tvmaze.com/" target="_blank" rel="noopener">TVMaze.com</a>
+  <footer>
+    Data from <a href="https://www.tvmaze.com/" target="_blank">TVMaze.com</a>
   </footer>
 
+  <script src="script.js"></script>
+</body>
 </html>
