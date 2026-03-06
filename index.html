@@ -12,25 +12,41 @@
       <option value="">Select a show...</option>
     </select>
 
+    <a href="#" id="back-to-shows" class="hidden">← Back to shows</a>
+
     <select id="episode-dropdown">
       <option value="">All episodes</option>
     </select>
 
-    <input type="text" id="search-box" placeholder="Search episodes...">
+    <input type="text" id="search-box" placeholder="Type here to search...">
     <span id="number-of-episodes"></span>
   </header>
 
-  <div id="card-container"></div>
+  <main>
+      <div id="show-container"></div>
 
-  <!-- Template for episode card -->
-  <template id="template">
-    <div class="episode-card">
-      <div class="episode-code"></div>
-      <h2 class="title"></h2>
-      <img class="image" />
-      <div class="summary"></div>
-    </div>
-  </template>
+      <!-- Template for show listing -->
+      <template id="template-show">
+        <div class="show-card">
+          <h2 class="show-title"></h2>
+          <img class="show-image" />
+          <p class="show-summary"></p>
+          <div class="show-details"></div>  <!-- genre, status, rating, runtime -->
+        </div>
+      </template>
+
+    <div id="card-container"></div>
+
+    <!-- Template for episode card -->
+    <template id="template-episode">
+      <div class="episode-card">
+        <div class="episode-code"></div>
+        <h2 class="episode-title"></h2>
+        <img class="episode-image" />
+        <p class="episode-summary"></p>
+      </div>
+    </template>
+  </main>
 
   <footer>
     Data from <a href="https://www.tvmaze.com/" target="_blank">TVMaze.com</a>

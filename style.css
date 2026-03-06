@@ -34,10 +34,11 @@ header {
   margin-left: 1rem;
 }
 
-#card-container {
+#show-container, #card-container {
   display: grid;
   grid-template-columns: repeat(auto-fit, 250px);
   justify-content: center;
+  text-align: center;
   gap: 1rem;
   padding: 1rem;
 }
