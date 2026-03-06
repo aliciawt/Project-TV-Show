@@ -8,11 +8,11 @@
 </head>
 <body>
   <header>
+    <button id="back-to-shows" style="display:none;">← Back to Shows</button>
+    
     <select id="show-dropdown">
       <option value="">Select a show...</option>
     </select>
-
-    <a href="#" id="back-to-shows" class="hidden">← Back to shows</a>
 
     <select id="episode-dropdown">
       <option value="">All episodes</option>
@@ -23,19 +23,25 @@
   </header>
 
   <main>
-      <div id="show-container"></div>
 
-      <!-- Template for show listing -->
-      <template id="template-show">
-        <div class="show-card">
-          <h2 class="show-title"></h2>
-          <img class="show-image" />
-          <p class="show-summary"></p>
-          <div class="show-details"></div>  <!-- genre, status, rating, runtime -->
+    <!-- SHOW LIST -->
+    <div id="show-container"></div>
+
+    <!-- Template for show listing -->
+    <template id="template-show">
+      <div class="show-card">
+        <div class="show-title"></div>
+        <div class="show-content">
+          <img class="show-image" src="" alt="Show image">
+          <div class="show-summary"></div>
+          <div class="show-details"></div>
         </div>
-      </template>
+      </div>
+    </template>
 
-    <div id="card-container"></div>
+
+    <!-- EPISODE LIST -->
+    <div id="card-container" style="display:none;"></div>
 
     <!-- Template for episode card -->
     <template id="template-episode">
@@ -46,6 +52,7 @@
         <p class="episode-summary"></p>
       </div>
     </template>
+
   </main>
 
   <footer>

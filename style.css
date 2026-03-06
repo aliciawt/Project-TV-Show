@@ -25,6 +25,25 @@ header {
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
+#back-to-shows {
+  height: 2rem;
+  padding: 0 0.8rem;
+  font-size: 0.95rem;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  background-color: white;
+  cursor: pointer;
+  transition: background-color 0.15s ease, transform 0.1s ease;
+}
+
+#back-to-shows:hover {
+  background-color: #f0f0f0;
+}
+
+#back-to-shows:active {
+  transform: translateY(1px);
+}
+
 #search-box, select {
   height: 2rem;
   font-size: 1rem;
@@ -33,13 +52,95 @@ header {
   border: 1px solid #ccc;
 }
 
+#show-dropdown,
+#episode-dropdown {
+  width: 220px;
+  max-width: 220px;
+  height: 2rem;
+  font-size: 1rem;
+  padding: 0 0.5rem;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
 #number-of-episodes {
   font-style: italic;
   font-size: 0.9rem;
   margin-left: 1rem;
 }
 
-#show-container, #card-container {
+#show-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding: 1rem;
+  align-items: center;
+}
+
+.show-card {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 1rem;
+  width: 90%;
+  max-width: 900px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  height: 300px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, cursor 0.2s;
+}
+
+.show-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+  cursor: pointer;
+}
+
+.show-title {
+  font-size: 1.3rem;
+  font-weight: bold;
+  text-align: left;
+}
+
+.show-content {
+  display: grid;
+  grid-template-columns: 150px 1fr 200px;
+  gap: 1rem;
+  align-items: start;
+  height: calc(100% - 2rem);
+}
+
+.show-image {
+  width: 100%;
+  max-width: 150px;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 6px;
+}
+
+.show-summary {
+  font-size: 0.95rem;
+  line-height: 1.3;
+  overflow-y: auto;
+  max-height: 100%;
+  padding-bottom: 0.5rem;
+}
+
+.show-details {
+  background-color: #f5f5f5;
+  padding: 0.5rem;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  height: 100%;
+  overflow-y: auto;
+}
+
+#card-container {
   display: grid;
   grid-template-columns: repeat(auto-fit, 250px);
   justify-content: center;
@@ -68,7 +169,7 @@ header {
   margin-bottom: 0.3rem;
 }
 
-.title {
+.episode-title {
   font-size: 1.1rem;
   line-height: 1.2em;
   margin-bottom: 0.5rem;
@@ -78,7 +179,24 @@ header {
   background: none;
 }
 
-.image {
+.episode-title a {
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  cursor: pointer;
+  text-decoration: none;
+  color: #111;
+  font-weight: bold;
+}
+
+.episode-link:hover {
+  text-decoration: underline;
+  color: #3498db;
+  cursor: pointer;
+}
+
+.episode-image {
   width: 100%;
   height: 150px;
   object-fit: cover;
@@ -87,7 +205,7 @@ header {
   flex-shrink: 0;
 }
 
-.summary {
+.episode-summary {
   font-size: 0.9rem;
   text-align: left;
   flex-grow: 1;
