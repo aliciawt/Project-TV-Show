@@ -12,12 +12,17 @@ html, body {
 }
 
 header {
+  position: sticky;
+  top: 0;
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 1rem;
-  margin: 2rem 0;
+  padding: 1rem 0;
   flex-wrap: wrap;
+  background-color: #f8f8f8;
+  z-index: 1000;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
 #search-box, select {
